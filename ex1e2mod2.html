@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercícios 1 e 2 - Módulo 2</title>
+</head>
+<style>
+  .container{
+    display: flex; 
+    flex-direction: column;
+  }
+  
+</style>
+<body>
+  <div class='container'>
+    <div id = 'squareDiv'></div>
+    <button  class = "botao">Criar quadrados</button>
+  </div>
+  
+  <script>
+    var buttonElement = document.querySelector("button.botao");
+    
+    var divElement = document.querySelector("div.container div#squareDiv");
+    
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+    
+    buttonElement.onclick = function(){
+        var squareElement = document.createElement("div");
+        squareElement.setAttribute("class","quadrado");
+        squareElement.setAttribute("style","height:100;width:100;background-color:red;margin:10");
+        squareElement.onmouseover = function(){
+          var newColor = getRandomColor();
+          squareElement.style.backgroundColor = newColor;
+        }
+        divElement.appendChild(squareElement);
+    }
+
+
+
+
+  </script>
+</body>
+</html>

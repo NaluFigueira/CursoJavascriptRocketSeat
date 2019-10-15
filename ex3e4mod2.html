@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercícios 3 e 4 - Módulo 2</title>
+</head>
+<body>
+  <div>
+    <input type="text" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+    <ul id = "listaNomes">
+    
+    </ul>
+  </div>
+  <script>
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+    var elementoUl = document.querySelector("ul#listaNomes");
+    var elementoInput = document.querySelector("input[name='nome']");
+    
+    function adicionarItemLista(nome){
+      var elementoLi = document.createElement("li");
+      elementoLi.append(nome);
+      elementoUl.appendChild(elementoLi);
+    }
+
+    nomes.forEach(nome => {
+      adicionarItemLista(nome);
+    });
+    
+    function adicionar(){
+      var nome = elementoInput.value;
+      adicionarItemLista(nome);
+      elementoInput.value = "";
+    }
+  </script>
+</body>
+</html>
